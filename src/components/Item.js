@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 
-function Item({ name, category }) {
+function Item({ name, category, selectedCategory }) {
   const [isInCart, setIsInCart] = useState(false);
 
   function handleAddToCartClick() {
     setIsInCart((isInCart) => !isInCart);
   }
 
+ 
   return (
+   
+    // category !== selectedCategory ? null :
     <li className={isInCart ? "in-cart" : ""}>
+       
       <span>{name}</span>
       <span className="category">{category}</span>
       <button
@@ -17,7 +21,9 @@ function Item({ name, category }) {
       >
         {isInCart ? "Remove From" : "Add to"} Cart
       </button>
+      
     </li>
+    
   );
 }
 
